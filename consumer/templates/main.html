@@ -1,0 +1,333 @@
+{% include 'index.html' with randcolor=randcolor %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart</title>
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+        
+
+        .first-row-internal {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            align-items: center;
+            height: 150px;
+            margin: 0 65px;
+            justify-content: space-between;
+            align-content: space-between;
+            width: 1400px;
+
+        }
+
+        #f {
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            justify-content: space-between;
+            color: black;
+            
+        }
+        #f:hover{
+            color: blue;
+        }
+        
+
+        #s {
+            height: 80px;
+            width: 80px;
+        }
+       #s:hover{
+        transform: scale(1.1);
+       }
+
+        .border {
+            border: 7px solid #f1f3f6;
+            border-style: solid;
+        }
+
+        .slide {
+
+            display: flex;
+            animation-name: slider;
+            animation-duration: 23s;
+            animation-iteration-count: infinite;
+            
+
+
+        }
+
+        #slide_content {
+            width: 100vw;
+
+
+        }
+
+        @keyframes slider {
+            0% {
+                transform: translate(0vw);
+            }
+
+            19% {
+                transform: translate(0vw);
+            }
+
+            20% {
+                transform: translate(-100vw);
+            }
+
+            39% {
+                transform: translate(-100vw);
+            }
+
+            40% {
+                transform: translate(-200vw);
+            }
+
+            59% {
+                transform: translate(-200vw);
+            }
+
+            60% {
+                transform: translate(-300vw);
+            }
+
+            79% {
+                transform: translate(-300vw);
+            }
+
+            80% {
+                transform: translate(-400vw);
+            }
+
+            100% {
+                transform: translate(-400vw);
+            }
+        }
+        #item-row-heading{
+            border-top: 2px solid rgb(206, 203, 203);
+            border-bottom: 2px solid rgb(206, 203, 203);
+            font-size: 28px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+        }
+        .real-item-row1 {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            justify-content: space-between;
+            margin: 0px 12px;
+            height: 180px;
+        }
+        .real-item-row1x {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            justify-content: space-between;
+            margin: 0px 12px;
+            height: 321px;
+        }
+        #s2:hover{
+            transform: scale(1.1);
+        }
+        #s2x:hover{
+            transform: scale(1.1);
+        }
+        #s2{
+            height:114px ; 
+            width:154px ;
+        }
+        #s2x{
+            height:270px ; 
+            width:154px ;
+        }
+        li{
+            list-style: none;
+        }
+        ul{
+            display: flex;
+            justify-content: space-between;
+            background-color: #2874f0;
+            color: white;
+            height: 5vh;
+            font-size: 20px;
+            font-weight: bold;
+            align-items: center;
+            padding: 0 200px;
+        }
+        @media screen and (max-device-width:480px){
+            .real-item-row1 {
+                overflow-x: scroll;
+                height: 470px;
+                font-size: 30px;
+                
+            }
+            .real-item-row1::-webkit-scrollbar {
+               display: none;
+            }
+            .real-item-row1x::-webkit-scrollbar {
+               display: none;
+            }
+            .first-row-internal::-webkit-scrollbar {
+               display: none;
+            }
+            .real-item-row1x {
+                font-size: 30px;
+                overflow-x: scroll;
+                height: 750px;
+            }
+            .first-row-internal{
+                overflow: scroll;
+                width: auto;
+                height: 300px;
+            }
+           #s{
+                height: 175px;
+                width: 150px;
+            }
+            .slide{
+                display: none;
+            }
+            #s2{
+                height: 300px;
+                width: 300px;
+            }
+            #s2x{
+                height: 600px;
+                width: 300px;
+            }
+            #f{
+                margin: 40px;
+            }
+            ul{
+                height: 7vh;
+                font-size: 30px;
+                padding: 0 30px;
+                width: 150vw;
+            }
+            li{
+                margin: 25px;
+            }
+            footer{
+                overflow: scroll;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    
+        <div class="first-row-internal">
+            <a id='f' href="/category_data?cat=laptops"><img id='s' src="/static/row1/laptops.jpg" alt="cart icon"><br>&nbspLaptops</a>
+            <a id='f' href="/category_data?cat=tv"><img id='s' src="/static/row1/tv.jpg" alt="cart icon"><br>&nbsptv</a>
+            <a id='f' href="/category_data?cat=mobiles"><img id='s' src="/static/row1/mobiles.jpg" alt="cart icon"><br>&nbsp&nbspMobiles</a>
+            <a id='f' href="/category_data?cat=ac"><img id='s' src="/static/row1/ac.jpg" alt="cart icon"><br>AC</a>
+            <a id='f' href="/category_data?cat=camera"><img id='s' src="/static/row1/camera.jpg" alt="cart icon"><br>Camera</a>
+            <a id='f' href="/category_data?cat=washing machine"><img id='s' src="/static/row1/washing machine.jpg" alt="cart icon"><br>Waching Machine</a>
+            <a id='f' href="/category_data?cat=refrigerator"><img id='s' src="/static/row1/refrigerator.jpg" alt="cart icon"><br>Refrigerator</a>
+            <a id='f' href="/category_data?cat=chimney"><img id='s' src="/static/row1/chimney.jpg" alt="cart icon"><br>Chimney</a>
+            <a id='f' href="/category_data?cat=gaming display"><img id='s' src="/static/row1/gaming display.jpg" alt="cart icon"><br>Gaming Display</a>
+            <a id='f' href="/category_data?cat=water purifier"><img id='s' src="/static/row1/water purifier.jpg" alt="cart icon"><br>Water Purifier</a>
+            <a id='f' href="/category_data?cat=tablet"><img id='s' src="/static/row1/tablet.jpg" alt="cart icon"><br>Tablets</a>
+            <a id='f' href="/category_data?cat=oven"><img id='s' src="/static/row1/oven.jpg" alt="cart icon"><br>Oven</a>
+        </div>
+    
+    <div class="border">
+
+    </div>
+    <div class="slide">
+        <a href="/item_detailed?id=126"><img id="slide_content" src="/static/header/intel.jpg" alt="realme"></a>
+        <a href="/item_detailed?id=719"><img id="slide_content" src="/static/header/realme.jpg" alt="realme"></a>
+        <a href="/category_data?cat=tv"><img id="slide_content" src="/static/header/tv.jpg" alt="tv"></a>
+        <a href="/item_detailed?id=713"><img id="slide_content" src="/static/header/redmi.jpg" alt="redmi"></a>
+        <a href="/item_detailed?id=186"><img id="slide_content" src="/static/header/windows.jpg" alt="windowss"></a>
+    </div>
+    <div class="border">
+
+    </div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Laptops</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data1 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Televisions</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data2 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Mobiles</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data3 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of ACs</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data4 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Camera</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data5 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Washing Machines</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data6 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Ovens</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data7 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Refrigerators</p><br><br>
+    <div class="real-item-row1x">
+        {% for x in data8 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2x' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Chimney</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data9 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Gaming Display</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data10 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Water Purifiers</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data11 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    <p id="item-row-heading">&nbsp&nbspBest of Tablets</p><br><br>
+    <div class="real-item-row1">
+        {% for x in data12 %}
+        <a id='f' href="/item_detailed?id={{ x.id }}"><img id='s2' src="/media/{{ x.p_image }}" alt="cart icon"><br><br>{{ x.p_name_short }}</a>
+        {% endfor %}
+    </div></div><br><br>
+    
+    <footer>
+        <ul>
+            <li>Contact Us</li>
+            <li>About Us</li>
+            <li>Become a Seller</li>
+            <li>Lootlokart Copyright &#169; </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

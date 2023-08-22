@@ -1,0 +1,203 @@
+{% include 'index.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Item</title>
+    <style>
+        .main{
+            display: flex;
+        }
+        #addtocart {
+            background-color: #ff9f00;
+            text-decoration: none;
+            color: white;
+            padding: 15px 30px;
+            margin-right: 10px;
+        }
+
+        #buy {
+            background-color: #fb641b;
+            text-decoration: none;
+            color: white;
+            padding: 15px 30px;
+            margin-left: 10px;
+        }
+        .item_display{
+            display: inline-flex;
+            flex-direction: column;
+            height: 60vh;
+            align-items: center;
+            justify-content: center;
+            margin-left: 65px;
+            position: sticky;
+            top: 150px;
+            border:25px solid var(--mian_colour);
+            
+        }
+        #item-image{
+            width: 416px;
+            height: 257px;
+            padding: 15px;
+        }
+        .item_details{
+            display: flex;
+            flex-direction: column;
+            width: 900px;
+            margin-left: 60px;
+            margin-top: 100px;
+            
+        }
+        #name{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .price{
+            padding-top: 40px;
+            font-size: 50px;
+            font-weight: bold;
+            color: var(--mian_colour);
+        }
+        ul{
+            font-size: 23px;
+            padding-top: 40px;
+            padding-left: 15px;
+            overflow-wrap: break-word;
+        }
+        p{
+            padding-top: 30px;
+            font-size: 20px;
+            width: 800px;
+            overflow-wrap: break-word;
+        }
+        #head{
+            font-weight: bold;
+            font-size: 40px;
+        }
+        .q{
+            padding-left: 10px;
+            font-size: 26px;
+        }
+        #xbox{
+            font-size: 25px;
+            width: 773px;
+            height: 273px;
+            resize: none;
+            border-radius: 12px;
+        }
+        #cbox{
+            margin-left: 60px;
+            margin-top: 50px;
+            font-size: 25px;
+            width: 650px;
+            height: fit-content;
+            overflow-wrap: break-word;
+            border-radius: 12px;
+            padding: 10px;
+            border: 4px solid rgb(96, 244, 212);
+        }
+        #username{
+            color: var(--mian_colour);
+            font-weight: bold;
+        }
+        #time{
+            margin-left: 300px;
+        }
+        .comment{
+            margin-top: 10px;
+        }
+        #send{
+            margin-left: 666px;
+            width: 100px;
+            height: 66px;
+        }
+        pre{
+            white-space: pre-line;
+        }
+        @media screen and (max-device-width:480px){
+            .main{
+                display: grid;
+                background-color: azure;
+            }
+            #item-image {
+            width: 651px;
+            height: 629px;}
+        
+        .item_display{
+            margin: 20px;
+            position: unset;
+        }
+        #buy{
+            font-size: 40px;
+        }
+        #addtocart{
+            font-size: 40px;
+        }
+        }
+    </style>
+
+</head>
+
+<body>
+    {% for x in seller_data %}
+    <div class="main">
+        <div class="item_display">
+            <div>
+                <img id="item-image" src="/media/{{ x.p_image }}" alt="">
+            </div>
+            <div class="buyl"><br><br><br>
+                <a id="addtocart" href="{{ pl }}">{{ p }}</a>
+                <a id="buy" href="/buy_form/">BUY NOW</a>
+            </div>
+        </div>
+        <div class="item_details">
+       <span id="name">
+        {{x.p_name}}
+            </span>
+       <div class="price">
+            Rs. {{x.p_price}}
+       </div> 
+       <div class="q">
+         {{x.p_quantity}} left
+       </div> 
+       
+       <div>
+            <span id="head"><br> Highlights</span>
+            <ul>
+            
+            <li>{{x.h1}}</li><br>
+            <li>{{x.h2}}</li><br>
+            <li>{{x.h3}}</li><br>
+            <li>{{x.h4}}</li><br>
+            <li>{{x.h5}}</li>
+            </ul>
+            <span id="head"><br> Specifications</span>
+            <pre><p>{{x.p_specifications}}</p></pre>
+
+            </div>
+            <span id="head"><br> Seller</span>
+            <p>{{ x.p_seller_name }}</p>
+
+            <span id="head"><br>Comment</span>
+            <form action="/comment/" method="post">{% csrf_token %}
+            <textarea name="comment" placeholder="Comment here" rows="5" cols="20" maxlength="500" id="xbox" required minlength="20"></textarea>
+            <br><br><input type="image" id="send" src="/static/header/send_icon.png"> 
+            </form>
+            
+            {% for y in comments %}
+            <div id = 'cbox'>
+            <span id="username">    {{ y.username_comment }}</span>
+            <span id="time">{{ y.c_datetime }}</span> <br>
+            <div class="comment">
+            <pre  id="comment"> {{ y.comment }} </pre> <br><br>
+            </div></div>
+            
+            {% endfor %}
+        
+    </div>
+</div>
+    {% endfor %}
+    
+</body>
+
+</html>

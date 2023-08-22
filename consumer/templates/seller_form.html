@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sell</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-size: 40px;
+            background-image: url('/static/header/product_bg.jpg');
+            background-size: 100vw 100vh;
+            background-attachment: fixed;
+            font-weight: bold;
+        }
+        form{
+            width: 1300px;
+            margin: auto;
+            border: 35px groove rgb(255, 255, 255);
+            padding: 25px;
+            animation: myanimate2;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            
+        }
+        @keyframes myanimate2 {
+            0% {
+                transform: translateY(-300vh)
+            }
+
+
+            100% {
+                margin-top: 20px;
+            }
+        }
+        input{
+            font-size: 25px;
+            border-radius: 12px;
+            
+        }
+        input:hover,#xbox:hover{
+            border: 2px solid aqua;   
+        }
+        input:focus,#xbox:focus{
+            border-color:  aqua;   
+        }
+    
+        #a{
+            width: 1200px;
+        }
+        #b{
+            width: 100px
+        }
+        #c{
+            width: 90px;
+        }
+        #xbox{
+            font-size: 25px;
+            width: 773px;
+            height: 273px;
+            resize: none;
+            border-radius: 12px;
+        }
+        #hi{
+            width: 750px;
+        }
+        input[type=radio] {
+        width: 46px;
+        height: 27px;
+        accent-color: aqua;
+        }
+        #x {
+            background-color:  rgb(0, 0, 0);
+            color: white;
+            padding: 15px 30px;
+            margin-right: 10px;
+            font-size: 25px;
+            width: 250px;
+
+        }
+
+        #x:hover {
+            border-color: aqua;
+            color: aqua;
+            border: 2px solid;
+
+        }
+        @media screen and (max-device-width:480px){
+            body{
+                font-size: 80px;
+                background-size: cover;            }
+            input{
+            font-size: 60px;
+        }
+        input[type=radio] {
+        width: 70px;
+        height: 70px;
+        }
+        #x{font-size: 100px;
+        width: max-content;}
+              
+            }
+    </style>
+</head>
+
+<body>
+<form action="/add_seller_record/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    Product Short Name:
+    <input name="p_name_short" maxlength="20" id="a" required>
+    <br><br>
+    Product long Name:
+    <input name="p_name" maxlength="88" id="a" required >
+    <br><br>
+    Image:
+    <input type="file" name="p_image" required>
+    <br><br>
+    Price:
+    <input name="p_price" maxlength="6" id="b" required min="1">
+    <br><br>
+    Quantity:
+    <input name="p_quantity"  maxlength="4" id="c" required min="1">
+    <br><br>
+    <div class="box">
+    Specifications: <br> <br>
+    <textarea name="p_specifications" required placeholder="Specifications" rows="5" cols="36" maxlength="500" id="xbox"></textarea>
+    
+    </div><br><br>
+    Seller Name:
+    <input name="p_seller_name" maxlength="20" required>
+    <br><br>
+    highlight 1:
+    <input name="h1" maxlength="60" id="hi" required>
+    <br><br>
+    highlight 2:
+    <input name="h2" maxlength="60" id="hi" required>
+    <br><br>
+    highlight 3:
+    <input name="h3" maxlength="60" id="hi" required>
+    <br><br>
+    highlight 4:
+    <input name="h4" maxlength="60" id="hi" required>
+    <br><br>
+    highlight 5:
+    <input name="h5" maxlength="60" id="hi" required>
+    <br><br>
+    Select Category:
+    <br><br>
+    <label for="ar"><input type="radio" required value="laptops" name="p_category" id="ar">Laptops</label><br>
+    <label for="br"><input type="radio" value="tv" name="p_category" id="br">TV</label><br>
+    <label for="cr"><input type="radio" value="mobiles" name="p_category" id="cr">Mobiles</label><br>
+    <label for="dr"><input type="radio" value="ac" name="p_category" id="dr">AC</label><br>
+    <label for="er"><input type="radio" value="camera" name="p_category" id="er">Camera</label><br>
+    <label for="fr"><input type="radio" value="washing machine" name="p_category" id="fr">Waching Machine</label><br>
+    <label for="hr"><input type="radio" value="oven" name="p_category" id="hr">Oven</label><br>
+    <label for="hra"><input type="radio" value="refigerator" name="p_category" id="hra">Refrigerator</label><br>
+    <label for="hrb"><input type="radio" value="chimney" name="p_category" id="hrb">Chimney</label><br>
+    <label for="hrc"><input type="radio" value="gaming display" name="p_category" id="hrc">Gaming Display</label><br>
+    <label for="hdr"><input type="radio" value="water purifier" name="p_category" id="hdr">Water Purifier</label><br>
+    <label for="hrr"><input type="radio" value="tablet" name="p_category" id="hrr">Tablets</label><br>
+    <br><br>
+    <div class="box"></div>
+    Enter comma(,) separated keywords for better search results: <br><br>
+    <textarea name="c_tags" placeholder="laptop,ryzen 5600h,1650,gaming,144hz,hp" rows="5" cols="36" maxlength="300"
+        id="xbox" required></textarea>
+    </div>
+    <br><br>
+    <div class="x">
+    <input id="x" type="submit" value="Submit">
+    <input id="x" type="reset" value="Reset">
+</div>
+</form>
+
+</body>
+
+</html>

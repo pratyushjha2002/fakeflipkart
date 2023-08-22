@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            background-image: url('/static/header/login_bg.jpg');
+            background-size: 100vw 100vh;
+
+        }
+
+
+        #box {
+            height: 40px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px;
+        }
+
+        input:hover,textarea:hover {
+            border: 2px solid aqua;
+
+        }
+
+        input:focus {
+            border-color: aqua;
+        }
+
+
+        .loginform {
+
+            border: 30px solid white;
+            padding: 62px 74px;
+            height: 500px;
+            animation: myanimate2;
+            animation-duration: 1.5s;
+            animation-fill-mode: forwards;
+
+        }
+
+        @keyframes myanimate2 {
+            0% {
+                margin-top: -70vh;
+                transform:rotate3d(3,3,3,180deg)
+            }
+
+
+            100% {
+                margin-top: 20px;
+            }
+        }
+        
+
+        #x {
+            border-radius: 12px;
+            background-color: #d2abaa;
+            color: white;
+            padding: 15px 30px;
+            margin-right: 10px;
+            font-size: 25px;
+            width: 250px;
+
+        }
+
+        #x:hover {
+            border-color: aqua;
+            color: aqua;
+            border: 2px solid;
+
+        }
+
+        #y:hover {
+            border-color: aqua;
+            color: aqua;
+
+
+        }
+
+        #y {
+            border-radius: 12px;
+            background-color: #d2abaa;
+            text-decoration: none;
+            color: white;
+            height: 63px;
+            padding: 16px 30px;
+            margin-left: 70px;
+            font-size: 25px;
+            border-top: 2px solid #e3e3e3;
+            border-right: 2px solid #979797;
+            border-bottom: 2px solid #979797;
+            border-left: 2px solid #e3e3e3;
+            margin-bottom: 5px;
+        }
+        .k{
+            display: inline-flex;
+            justify-content: space-between;
+            width: 707px;
+        }
+        #xbox{
+            font-size: 20px;
+            border-radius: 10px;
+            resize: none;
+            padding: 5px;
+        }
+        .x{
+            padding-top: 50px;
+            padding-left: 20px;
+
+        }
+        #fp{
+            font-size: 30px;
+            color: rgb(255, 0, 0);
+            text-decoration: none;
+            border-radius: 6px;
+            position: relative;
+            left: -1%;
+            top: -118%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loginform">
+        <form action="/s_signup/" method="post">{% csrf_token %}
+            Username:&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="text" name=s_name placeholder="Username" placeholder="&nbsp Username" id="box" value="{{ a }}" required>
+            <br><br>
+            Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="email" name="s_email" placeholder="examaple@gmail.com" id="box" required value="{{ b }}">
+            <br><br>
+            Password:&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="password" name="s_password" placeholder="**********" maxlength="24" id="box" required>
+            <br><br>
+            <div class="k">
+            Address: 
+            <textarea name="s_address" placeholder="Address" rows="5" cols="36" maxlength="150" id="xbox" required>{{ c }}</textarea>
+            <br><br></div>
+            <div class="x">
+                <input id="x" type="submit" value="submit">
+        </form>
+        <a id='y' href="/s_login_form/">Already a Member?</a>
+    </div>
+    <span id="fp">{{ gg }}</span>
+    </div>
+</body>

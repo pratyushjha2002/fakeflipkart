@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --mian_colour: {{ randcolor }};
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+
+            background-color: var(--mian_colour);
+            width: 100vw;
+            height: 56px;
+            position: sticky;
+            top: 0px;
+            z-index: 1;
+        }
+
+        .header-sub-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1000px;
+            position: sticky;
+            margin: 0 4px;
+        }
+        .logo {
+            height: 20px;
+            width: 75px;
+            padding-top: 5px;
+        }
+        
+        .search-input {
+            width: 521px;
+            height: 36px;
+            padding: 0 7px;
+        }
+
+
+        .search-icon {
+            width: 30px;
+            height: 34px;
+            padding: 1px 1px;
+            position: absolute;
+            left: 604px;
+            top: 11px;
+            cursor: pointer;
+        }
+
+        .login {
+            font-size: 20px;
+            text-decoration: none;
+            background-color: white;
+            color: var(--mian_colour);
+            width: 100px;
+            text-align: center;
+        }
+
+        .text {
+            align-items: center;
+            display: flex;
+            font-size: 20px;
+            text-decoration: none;
+            color: white;
+            align-self: center;
+        }
+
+        .cart-logo {
+            width: 30px;
+            height: 34px;
+        }
+
+       
+        #tt{
+            display: flex;
+            justify-content: center;
+            width: 132px;
+        }
+        @media screen and (max-device-width:480px){
+            header{
+                height: 200px;
+            }
+            .header-sub-container{
+             height: 200px;
+             overflow: scroll;
+             margin-left: 20px;
+             margin-right: 20px;
+            }
+            .logo {
+                height: 88px;
+                width: 148px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .login {
+            font-size: 59px;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding: 8px 67px;
+            display: flex;}
+            .search-input {
+            width: 692px;
+            height: 100px;
+            font-size: 35px;
+            margin-left: 20px;
+            margin-right: 20px;
+            }
+            #tt{
+                font-size: 35px;
+                width : 233px;
+                margin-left: 20px;
+                margin-right: 20px;
+                
+            }
+            .cart-logo {
+            width: 92px;
+            height: 116px;
+            }
+            .text{
+                font-size: 40px;
+            }.search-icon {
+            width: 70px;
+            height: 78px;
+            left: 830px;
+            top: 60px;
+            }
+            }
+
+    </style>
+</head>
+<body>
+    <header class="yes">
+        <div class="header-sub-container">
+            <a href="/main/"><img src="/static/header/flipkar-symbol.png" alt="LOGO" class="logo"></a>
+            <form action="/search/" method="post">{% csrf_token %}
+                
+            <div class="search">
+                <input type="text" id="rrr" name="search_key" class=search-input value="{{ sk }}" placeholder="Search for products, brands and more" spellcheck="true">
+                <input type="image" class="search-icon" src="/static/header/search-icon.jpg" alt="">
+            </div>
+        </form>
+        
+            <a class='login' href="{{ l }}">{{ status }}</a>
+            <a class='text'  href="{{ lt }}"> <div id="tt"> {{ typeu }} </div></a>
+            <a class="text" href="/showcart"><img class=cart-logo text src="/static/header/cart-icon.png" alt="cart icon" id="cart-link">Cart</a>
+        </div>
+    </header>
+</body>
+</html>

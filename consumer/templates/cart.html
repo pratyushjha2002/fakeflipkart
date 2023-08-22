@@ -1,0 +1,90 @@
+{% include 'index.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <style>
+        .item_container{
+            border-bottom: 2px solid #c7c7c7;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            
+        }
+        #item-image{
+            height: 132px;
+            width: 200px;
+        }
+        .item_brief{
+            height: 180px;
+            width: 650px;
+            
+        }
+        .item_name{
+            font-weight: bold;
+        }
+        ul{
+            
+            padding-left: 20px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #pprice{
+            font-family: cursive;
+            color: #0034ff;;
+        }
+        @media screen and (max-device-width:480px){
+            #item-image {
+            height: 274px;
+            width: 350px;
+            padding-right: 10px;
+            }
+            .item_container{
+                font-size: 30px;
+                padding: 10px;
+            }
+            ul{
+                display: none;
+            }
+            .item_price{
+                color: rgb(38, 0, 255);
+                font-weight: bold;
+            }
+        }
+    </style>
+
+</head>
+<body><br>
+    {% for x in seller_data %}
+    
+    <a href="/item_detailed?id={{ x.id }}">
+    <div class="item_container">
+        <div class="item_image_container">
+            <img id="item-image" src="/media/{{ x.p_image }}" alt="">
+        </div>
+        
+        <div class="item_brief">
+            <div class="item_name"><br>
+            {{ x.p_name }}
+        </div><br>
+        <div>
+            <ul>
+
+                <li>{{ x.h1 }}</li>
+                <li>{{ x.h2 }}</li>
+                <li>{{ x.h3 }}</li>
+                <li>{{ x.h4 }}</li>
+                <li>{{ x.h5 }}</li>
+            </ul>
+            
+        </div></div>
+        <div id="pprice" class="item_price">
+            Rs. {{x.p_price}}
+        </div>
+    </div></a>
+        
+        {% endfor %}
+</body>
+</html>

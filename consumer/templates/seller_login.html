@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>login</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            background-image: url('/static/header/login_bg.jpg');
+            background-size: 100vw 100vh;
+
+        }
+
+
+        #box {
+            height: 40px;
+            width: 300px;
+            font-size: 30px;
+            border-radius: 10px;
+        }
+
+        input:hover {
+            border: 2px solid aqua;
+
+        }
+
+        input:focus {
+            border-color: aqua;
+        }
+
+
+        .loginform {
+
+            border: 30px solid white;
+            padding: 62px 74px;
+            height: 250px;
+            animation: myanimate2;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+
+        }
+
+        @keyframes myanimate2 {
+            0% {
+                margin-top: -70vh;
+                transform:rotate3d(3,3,3,180deg)
+            }
+
+
+            100% {
+                margin-top: 100px;
+            }
+        }
+
+        #x {
+            border-radius: 12px;
+            background-color: #d2abaa;
+            color: white;
+            padding: 15px 30px;
+            margin-right: 10px;
+            font-size: 25px;
+            width: 250px;
+
+        }
+
+        #x:hover {
+            border-color: aqua;
+            color: aqua;
+            border: 2px solid;
+
+        }
+
+        #y:hover {
+            border-color: aqua;
+            color: aqua;
+
+
+        }
+
+        #y {
+            border-radius: 12px;
+            background-color: #d2abaa;
+            text-decoration: none;
+            color: white;
+            height: 63px;
+            padding: 16px 30px;
+            margin-left: 10px;
+            font-size: 25px;
+            border-top: 2px solid #e3e3e3;
+            border-right: 2px solid #979797;
+            border-bottom: 2px solid #979797;
+            border-left: 2px solid #e3e3e3;
+            margin-bottom: 5px;
+        }
+        #fp{
+            font-size: 30px;
+            color: blue;
+
+           text-decoration: none;
+           
+           border-radius: 8px;
+           background-color: #d2abaa;
+           
+           position: relative;
+            left: 26%
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loginform">
+        <form action="/c_login/" method="post">{% csrf_token %}
+            Username:&nbsp&nbsp&nbsp&nbsp
+            <input type="text" name="username" placeholder="&nbsp Username" id="box" required>
+            <br><br>
+            Password:&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="password" name="c_password" placeholder="&nbsp**********" id="box" required>
+            <br><br>
+            <div class="x">
+                <input id="x" type="submit" value="Login">
+        </form>
+
+                <a id='y' href="/s_signup_form/">Don't have an Account ?</a>
+            </div>
+            <a id="fp" href="{{ m }}">{{ lf }}</a>
+    </div>
+</body>
+
+</html>
